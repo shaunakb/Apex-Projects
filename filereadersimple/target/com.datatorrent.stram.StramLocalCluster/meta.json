@@ -1,0 +1,1 @@
+{"attributes":{"APPLICATION_PATH":"file:\/home\/dtadmin\/Desktop\/apex\/filereadersimple\/target\/com.datatorrent.stram.StramLocalCluster\/","STREAMING_WINDOW_SIZE_MILLIS":500,"STORAGE_AGENT":"com.datatorrent.common.util.AsyncFSStorageAgent@4da2a316","APPLICATION_NAME":"FileReaderSimple","APPLICATION_ID":"app_local_1500482704167","CHECKPOINT_WINDOW_COUNT":60},"metrics":{}}

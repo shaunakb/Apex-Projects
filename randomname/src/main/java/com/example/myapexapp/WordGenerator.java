@@ -1,0 +1,76 @@
+/**
+ * Put your copyright and license info here.
+ */
+package com.example.myapexapp;
+
+import com.datatorrent.api.DefaultOutputPort;
+import com.datatorrent.api.DefaultInputPort;
+import com.datatorrent.api.InputOperator;
+import com.datatorrent.common.util.BaseOperator;
+
+/**
+ * Emits a word created from a random number of random characters.
+ */
+public class WordGenerator extends BaseOperator
+{
+  private int numTuples = 100;
+  private transient int count = 0;
+	private int length = 0;
+	private String alphabet = "abcdefghijklmnopqrstuvwxyz";
+	private int[] freq = new int[]{81, 15, 28, 42, 127, 22, 20, 61, 70,
+								  	2, 8, 40, 24, 67, 75, 19, 1, 60, 63,
+								  	90, 28, 10, 24, 2, 20, 1};
+	private char[] weighted = getWeighted();
+
+	private char[] getWeighted()
+	{
+		char[] weighted = new char[1000];
+		int index = 0;
+		for (int i = 0; i < 26; i++)
+		{
+			for (int c = 0; c < freq[i]; c++)
+			{
+				weighted[index] = alphabet.charAt(i);
+				index++;
+			}
+		}
+		return weighted;
+	}
+
+  public final transient DefaultOutputPort<String> out = new DefaultOutputPort<String>();
+
+	public final transient DefaultInputPort<Integer> input = new DefaultInputPort<Integer>()
+	{
+		@Override
+		public void process(Integer l)
+		{
+			String name = ("" + alphabet.charAt((int)(Math.random() * 26))).toUpperCase();
+			for(int i = 1; i < l.intValue(); i++)
+			{
+				int index = (int)(Math.random() * 1000);
+				name += weighted[index];
+			}
+			out.emit(name);
+		}
+	};
+
+  @Override
+  public void beginWindow(long windowId)
+  {
+    count = 0;
+  }
+
+  public int getNumTuples()
+  {
+    return numTuples;
+  }
+
+  /**
+   * Sets the number of tuples to be emitted every window.
+   * @param numTuples number of tuples
+   */
+  public void setNumTuples(int numTuples)
+  {
+    this.numTuples = numTuples;
+  }
+}

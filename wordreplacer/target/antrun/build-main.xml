@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="maven-antrun-" default="main"  >
+<target name="main">
+  <delete dir="/home/dtadmin/Desktop/apex/wordreplacer/target/generated-resources/xml-javadoc"/>
+  <mkdir dir="/home/dtadmin/Desktop/apex/wordreplacer/target/generated-resources/xml-javadoc"/>
+</target>
+</project>

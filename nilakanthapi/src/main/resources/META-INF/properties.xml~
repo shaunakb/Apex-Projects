@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<configuration>
+  <!-- 
+  <property>
+    <name>dt.application.{appName}.operator.{opName}.prop.{propName}</name>
+    <value>some-default-value (if value is not specified, it is required from the user or custom config when launching)</value>
+  </property>
+  -->
+  <!-- memory assigned to app master
+  <property>
+    <name>dt.attr.MASTER_MEMORY_MB</name>
+    <value>1024</value>
+  </property>
+  -->
+	<property>
+    <name>dt.application.ArcSin.operator.startProcess.prop.pause</name>
+    <value>250</value>
+  </property>
+	<property>
+		<name>dt.application.ArcSin.operator.startProcess.prop.input</name>
+		<value>0.2588190451</value>
+	</property>
+	<property>
+		<name>dt.application.ArcSin.operator.coefficient.prop.multiplyFactor</name>
+		<value>1.0</value>
+	</property>
+  <property>
+    <name>dt.application.ArcSin.operator.console.prop.stringFormat</name>
+    <value>%s</value>
+  </property>
+</configuration>
+

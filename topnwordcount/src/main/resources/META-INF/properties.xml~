@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<configuration>
+  <!-- 
+  <property>
+    <name>dt.application.{appName}.operator.{opName}.prop.{propName}</name>
+    <value>some-default-value (if value is not specified, it is required from the user or custom config when launching)</value>
+  </property>
+  -->
+  <!-- memory assigned to app master
+  <property>
+    <name>dt.attr.MASTER_MEMORY_MB</name>
+    <value>1024</value>
+  </property>
+  -->
+  <property>
+   <name>dt.attr.MASTER_MEMORY_MB</name>
+   <value>500</value>
+ </property> <property>
+   <name>dt.application.*.operator.*.attr.MEMORY_MB</name>
+   <value>200</value>
+ </property> <property>
+   <name>dt.application.TopNWordsWithQueries.operator.fileWordCount.attr.MEMORY_MB</name>
+   <value>512</value>
+ </property> <property>
+   <name>dt.application.TopNWordsWithQueries.operator.lineReader.directory</name>
+   <value>/tmp/test/input-dir</value>
+ </property> <property>
+   <name>dt.application.TopNWordsWithQueries.operator.wordReader.nonWordStr</name>
+   <value>[\p{Punct}\s]+</value>
+ </property> <property>
+   <name>dt.application.TopNWordsWithQueries.operator.wcWriter.filePath</name>
+   <value>/tmp/test/output-dir</value>
+ </property> <property>
+   <name>dt.application.TopNWordsWithQueries.operator.fileWordCount.topN</name>
+   <value>10</value>
+ </property> <property>
+   <name>dt.application.TopNWordsWithQueries.stream.QueryFileStream.locality</name>
+   <value>CONTAINER_LOCAL</value>
+ </property> <property>
+   <name>dt.application.TopNWordsWithQueries.stream.QueryGlobalStream.locality</name>
+   <value>CONTAINER_LOCAL</value>
+ </property> <property>
+   <name>dt.application.TopNWordsWithQueries.operator.QueryFile.topic</name>
+   <value>TopNWordsQueryFile</value>
+ </property> <property>
+   <name>dt.application.TopNWordsWithQueries.operator.wsResultFile.topic</name>
+   <value>TopNWordsQueryFileResult</value>
+ </property> <property>
+   <name>dt.application.TopNWordsWithQueries.operator.QueryGlobal.topic</name>
+   <value>TopNWordsQueryGlobal</value>
+ </property> <property>
+   <name>dt.application.TopNWordsWithQueries.operator.wsResultGlobal.topic</name>
+   <value>TopNWordsQueryGlobalResult</value>
+ </property> <property>
+   <name>dt.application.TwitterDemo.operator.wsResult.numRetries</name>
+   <value>2147483647</value>
+ </property>
+</configuration>
+

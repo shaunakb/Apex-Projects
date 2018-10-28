@@ -1,0 +1,1 @@
+{"attributes":{"APPLICATION_PATH":"file:\/home\/dtadmin\/Desktop\/apex\/randomname\/target\/com.datatorrent.stram.StramLocalCluster","STREAMING_WINDOW_SIZE_MILLIS":500,"STORAGE_AGENT":"com.datatorrent.common.util.AsyncFSStorageAgent@fac7b6d","APPLICATION_NAME":"RandomName","APPLICATION_ID":"app_local_1500485530372","CHECKPOINT_WINDOW_COUNT":60},"metrics":{}}

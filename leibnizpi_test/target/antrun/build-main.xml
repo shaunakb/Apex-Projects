@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="maven-antrun-" default="main"  >
+<target name="main">
+  <move file="/home/dtadmin/Desktop/apex/leibnizpi_test/target/LeibnizPi-2.3=SNAPSHOT-apexapp.jar" tofile="/home/dtadmin/Desktop/apex/leibnizpi_test/target/LeibnizPi-2.3=SNAPSHOT.apa"/>
+</target>
+</project>

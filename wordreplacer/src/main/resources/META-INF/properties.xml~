@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<configuration>
+  <!-- 
+  <property>
+    <name>dt.application.{appName}.operator.{opName}.prop.{propName}</name>
+    <value>some-default-value (if value is not specified, it is required from the user or custom config when launching)</value>
+  </property>
+  -->
+  <!-- memory assigned to app master
+  <property>
+    <name>dt.attr.MASTER_MEMORY_MB</name>
+    <value>1024</value>
+  </property>
+  -->
+	<property>
+		<name>dt.application.WordReplacer.operator.text.prop.directory</name>
+		<value>src/main/resources/input-dir</value>
+	</property>
+	<property>
+		<name>dt.application.WordReplacer.operator.splitter.prop.base</name>
+		<value>luccell</value>
+	</property>
+	<property>
+		<name>dt.application.WordReplacer.operator.splitter.prop.target</name>
+		<value>e</value>
+	</property>
+  <property>
+    <name>dt.application.WordReplacer.operator.joiner.prop.replacement</name>
+    <value>a</value>
+  </property>
+  <property>
+    <name>dt.application.WordReplacer.operator.console.prop.stringFormat</name>
+    <value>%s</value>
+  </property>
+</configuration>
+

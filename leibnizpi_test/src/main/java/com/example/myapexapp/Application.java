@@ -1,0 +1,45 @@
+/**
+ * Put your copyright and license info here.
+ */
+package com.example.myapexapp;
+
+import org.apache.hadoop.conf.Configuration;
+
+import com.datatorrent.api.annotation.ApplicationAnnotation;
+import com.datatorrent.api.StreamingApplication;
+import com.datatorrent.api.DAG;
+import com.datatorrent.api.DAG.Locality;
+import com.datatorrent.lib.io.ConsoleOutputOperator;
+import com.datatorrent.lib.math.Sum;
+import com.datatorrent.lib.math.Division;
+
+@ApplicationAnnotation(name="LeibnizPi")
+public class Application implements StreamingApplication
+{
+
+  @Override
+  public void populateDAG(DAG dag, Configuration conf)
+  {
+
+    Count count = dag.addOperator("count", new Count());
+		Numerator numer = dag.addOperator("numer", new Numerator());
+		Sign sign = dag.addOperator("sign", new Sign());
+		MainNum mainNum = dag.addOperator("num", new MainNum());
+		Product product = dag.addOperator("product", new Product());
+		Division division = dag.addOperator("division", new Division());
+		//Sum sum = dag.addOperator("sum", new Sum());
+		//sum.setCumulative(true);
+	
+    ConsoleOutputOperator cons = dag.addOperator("console", new ConsoleOutputOperator());
+		
+		dag.addStream("countData", count.output, sign.input, mainNum.input);
+		dag.addStream("signData", sign.output, product.num1);
+		dag.addStream("mainNumData", mainNum.output, product.num2);
+		//dag.addStream("denominator", product.output, cons.input).setLocality(Locality.CONTAINER_LOCAL);
+		dag.addStream("numerator", numer.output, division.numerator);
+		dag.addStream("denominator", product.output, division.denominator);
+		//dag.addStream("termData", division.doubleQuotient, sum.data);
+		dag.addStream("termData", division.doubleQuotient, cons.input).setLocality(Locality.CONTAINER_LOCAL);
+		//dag.addStream("sumData", sum.sumDouble, cons.input).setLocality(Locality.CONTAINER_LOCAL);
+  }
+}
